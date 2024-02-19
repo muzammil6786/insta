@@ -9,7 +9,7 @@ const pictureRouter = express.Router();
 // adding picture
 pictureRouter.post("/", auth, async (req, res) => {
   try {
-    const picture = new pictureModel(req, body);
+    const picture = new pictureModel(req.body);
     await picture.save();
     res.status(200).send({ mdg: "picture has been added succesfully" });
   } catch (err) {
